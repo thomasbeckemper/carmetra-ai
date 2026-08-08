@@ -1,36 +1,33 @@
-# CARMETRA AI
+# CARL.AI
 
-Moderne Next.js Landingpage für ein Schweizer AI-Automation-Unternehmen.
+High-end Next.js landing page for CARL.AI — AI agents, process automation and private/local AI for Swiss companies.
 
-## Start
+## Start locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Danach im Browser öffnen:
+Open: http://localhost:3000
 
-http://localhost:3000
+## Production build
 
-## Inhalte anpassen
+```bash
+npm run build
+npm start
+```
 
-Die Hauptseite liegt in:
+## Before launch
 
-`app/page.js`
+- Replace `hello@example.com` in `app/page.js` with the real business email.
+- Add legal Impressum and Datenschutz pages.
+- Connect the final domain in Render.
+- Replace the temporary CM founder visual with a professional Caroline portrait if desired.
+- Confirm the final company spelling/brand registration before official launch.
 
-Das komplette Design liegt in:
+## Deployment on Render
 
-`app/globals.css`
-
-## Vor dem Livegang ändern
-
-- E-Mail-Adresse `hello@carmetra-ai.ch`
-- Impressum / Datenschutz
-- ggf. Firmenname und Domain
-- echtes Foto von Caroline im Founder-Bereich
-- echte Kunden-Cases und Kennzahlen erst ergänzen, sobald vorhanden
-
-## Vorschlag für GitHub Repository
-
-`carmetra-ai`
+- Build command: `npm install && npm run build`
+- Start command: `npm start`
+- Branch: `main`
