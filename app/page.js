@@ -1,14 +1,15 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import Link from 'next/link'
 
 const services = [
-  { icon: '✉', kicker: 'COMMUNICATION', title: 'Inbox Agent', text: 'Analysiert Anfragen, erkennt Absichten, bereitet Antworten vor und startet definierte Folgeprozesse.' },
-  { icon: '⌕', kicker: 'KNOWLEDGE', title: 'Document Agent', text: 'Verwandelt verstreutes Unternehmenswissen in präzise, nachvollziehbare Antworten mit Quellen.' },
-  { icon: '↯', kicker: 'OPERATIONS', title: 'Process Agent', text: 'Verknüpft vorhandene Tools und übernimmt repetitive Aufgaben entlang klarer Geschäftsregeln.' },
-  { icon: '◉', kicker: 'SERVICE', title: 'Service Agent', text: 'Unterstützt Supportteams bei Klassifikation, Recherche, Lösungsvorschlägen und Eskalationen.' },
-  { icon: '◇', kicker: 'INTERNAL AI', title: 'Knowledge Copilot', text: 'Macht internes Know-how rollenbasiert zugänglich – für schnellere Entscheidungen im Arbeitsalltag.' },
-  { icon: '⌾', kicker: 'PRIVATE AI', title: 'Local AI Stack', text: 'Private und lokale KI-Architekturen für sensible Daten, kontrollierte Prozesse und maximale Souveränität.' },
+  { slug:'inbox-agent', icon: '✉', kicker: 'COMMUNICATION', title: 'Inbox Agent', text: 'Analysiert Anfragen, erkennt Absichten, bereitet Antworten vor und startet definierte Folgeprozesse.' },
+  { slug:'document-agent', icon: '⌕', kicker: 'KNOWLEDGE', title: 'Document Agent', text: 'Verwandelt verstreutes Unternehmenswissen in präzise, nachvollziehbare Antworten mit Quellen.' },
+  { slug:'process-agent', icon: '↯', kicker: 'OPERATIONS', title: 'Process Agent', text: 'Verknüpft vorhandene Tools und übernimmt repetitive Aufgaben entlang klarer Geschäftsregeln.' },
+  { slug:'service-agent', icon: '◉', kicker: 'SERVICE', title: 'Service Agent', text: 'Unterstützt Supportteams bei Klassifikation, Recherche, Lösungsvorschlägen und Eskalationen.' },
+  { slug:'knowledge-copilot', icon: '◇', kicker: 'INTERNAL AI', title: 'Knowledge Copilot', text: 'Macht internes Know-how rollenbasiert zugänglich – für schnellere Entscheidungen im Arbeitsalltag.' },
+  { slug:'local-ai-stack', icon: '⌾', kicker: 'PRIVATE AI', title: 'Local AI Stack', text: 'Private und lokale KI-Architekturen für sensible Daten, kontrollierte Prozesse und maximale Souveränität.' },
 ]
 
 const steps = [
@@ -89,7 +90,7 @@ export default function Home() {
     <header className="site-header">
       <nav className="container nav">
         <a href="#top" className="brand-link"><Brand/></a>
-        <div className="nav-links"><a href="#agents">Agents</a><a href="#private">Private AI</a><a href="#approach">Vorgehen</a><a href="#about">Über Caroline</a></div>
+        <div className="nav-links"><a href="#agents">Agents</a><Link href="/ki-modelle">KI-Modelle</Link><a href="#private">Private AI</a><a href="#approach">Vorgehen</a><a href="#about">Über Caroline</a></div>
         <a href="#contact" className="nav-cta">Projekt besprechen <span>→</span></a>
       </nav>
     </header>
@@ -109,7 +110,7 @@ export default function Home() {
 
     <section id="agents" className="container section">
       <div className="section-top"><div><div className="eyebrow"><i/> PURPOSE-BUILT AGENTS</div><h2>Nicht noch ein Chatbot.<br/><span>Ein digitaler Prozess.</span></h2></div><p>Wir bauen KI nicht um der KI willen. Jeder Agent beginnt mit einer konkreten Aufgabe, einem klaren Prozess und einem messbaren Nutzen für Ihr Unternehmen.</p></div>
-      <div className="agent-cards">{services.map(({icon,kicker,title,text},idx)=><article key={title} className="agent-card"><div className="card-head"><div className="card-icon"><span className="glyph">{icon}</span></div><small>{kicker}</small></div><h3>{title}</h3><p>{text}</p><span className="learn">Explore use case <span>→</span></span></article>)}</div>
+      <div className="agent-cards">{services.map(({slug,icon,kicker,title,text})=><article key={title} className="agent-card"><div className="card-head"><div className="card-icon"><span className="glyph">{icon}</span></div><small>{kicker}</small></div><h3>{title}</h3><p>{text}</p><Link className="learn" href={`/agents/${slug}`}>Anwendungsfall entdecken <span>→</span></Link></article>)}</div>
     </section>
 
     <section id="private" className="section private-band">
